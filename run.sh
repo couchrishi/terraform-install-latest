@@ -5,19 +5,19 @@ trim() {
   echo "$1" | sed -e "s/\\\n\$//"
 }
 
-cli_args=
+terraform_cli="${WERCKER_STEP_ROOT}/terraform"
 
 if [ -n "${WERCKER_TERRAFORM_INSTALL_LATEST_VAR_FILE}" ]; then
-  cli_args="$cli_args -var-file=${WERCKER_TERRAFORM_INSTALL_LATEST_VAR_FILE}"
+  cd $terraform_cli
+  echo ${WERCKER_TERRAFORM_INSTALL_LATEST_VAR_FILE} > terraform.tfvars
+  awk '{gsub(/\\n/,"\n")}1' terraform.tfvars
 fi
-
-terraform_cli="${WERCKER_STEP_ROOT}/terraform"
 
 $terraform_cli --version
 
 $terraform_cli init
 
-echo "terraform ${WERCKER_TERRAFORM_INSTALL_LATEST_COMMAND} $cli_args"
-if ! eval "$terraform_cli ${WERCKER_TERRAFORM_INSTALL_LATEST_COMMAND} $cli_args"; then
+echo "terraform ${WERCKER_TERRAFORM_INSTALL_LATEST_COMMAND}"
+if ! eval "$terraform_cli ${WERCKER_TERRAFORM_INSTALL_LATEST_COMMAND}"; then
   fail "Invalid command option"
 fi
