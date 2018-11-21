@@ -16,6 +16,7 @@ cat - << EOF
 Run the following to reload your PATH with terraform:
 source ~/.bashrc
 rm "terraform.zip"
+terraform --v
 EOF
 }
 
