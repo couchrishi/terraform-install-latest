@@ -1,6 +1,14 @@
 name: terraform-install-latest
-version: 1.0.9
+version: 1.0.10
 summary: terraform-install-latest
 category: imported
 tags:
   - terraform
+properties:
+  - name: command
+    type: string
+    required: false
+    default: apply
+  - name: var_file
+    type: string
+    required: false
