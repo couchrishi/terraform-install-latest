@@ -38,7 +38,6 @@ build:
                     mkdir -p $GOPATH/src/github.com/terraform-providers; cd $GOPATH/src/github.com/terraform-providers
                     git clone https://github.com/terraform-providers/terraform-provider-oci.git 
                     cd $GOPATH/src/github.com/terraform-providers/terraform-provider-oci
-                    ls -a
                     make build
                 }
                 go-install
@@ -49,13 +48,11 @@ build:
             name: prepare output
             code: |
                 mv /tmp/terraform/terraform "${WERCKER_ROOT}/terraform"
-                mv $GOPATH/src/github.com/terraform-providers/terraform-provider-oci/* ${WERCKER_STEP_ROOT}/
+                mv $GOPATH/src/github.com/terraform-providers/terraform-provider-oci/* ${WERCKER_ROOT}/
                 rm -rf "${WERCKER_ROOT}/.git"
                 rm -f "${WERCKER_ROOT}/.gitignore"
-                cd ${WERCKER_STEP_ROOT}
+                cd ${WERCKER_ROOT}
                 ls -a
-                ls -a $HOME/terraform.d/
-                ls -a $HOME/terraform.d/plugins
                 
         - script:
             name: version
