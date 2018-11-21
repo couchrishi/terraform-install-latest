@@ -43,7 +43,7 @@ build:
         - script:
             name: version
             code: |
-                cd "${WERCKER_ROOT}"
+                cd "${WERCKER_ROOT}/terraform"
                 ls -a
                 "${WERCKER_ROOT}/terraform" --version
 
