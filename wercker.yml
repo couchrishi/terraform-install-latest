@@ -43,6 +43,8 @@ build:
         - script:
             name: version
             code: |
+                cd "${WERCKER_ROOT}"
+                ls -a
                 "${WERCKER_ROOT}/terraform" --version
 
 publish:
