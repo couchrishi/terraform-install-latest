@@ -39,8 +39,8 @@ build:
                     make build
                 }
                 go-install
-                oci-provider-install
                 terraform-install
+                oci-provider-install
 
         - script:
             name: prepare output
