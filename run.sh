@@ -12,6 +12,13 @@ if [ -n "${WERCKER_TERRAFORM_VAR_FILE}" ]; then
 fi
 
 terraform_cli="${WERCKER_STEP_ROOT}/terraform"
+
+mkdir -p $GOPATH/src/github.com/terraform-providers; cd $GOPATH/src/github.com/terraform-providers
+git clone git@github.com:terraform-providers/terraform-provider-oci
+cd $GOPATH/src/github.com/terraform-providers/terraform-provider-oci
+make build
+mv $GOPATH/src/github.com/terraform-providers/terraform-provider-oci/* ${WERCKER_STEP_ROOT}/terraform
+
 $terraform_cli --version
 
 $terraform_cli init
