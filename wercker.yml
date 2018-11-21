@@ -6,7 +6,7 @@ build:
             files: run.sh
 
         - install-packages:
-            packages: unzip curl jq git make wget tar golang-go golang-golang-x-tools
+            packages: unzip curl jq git wget tar
 
         - script:
             name: install terraform
@@ -36,14 +36,14 @@ build:
             name: prepare output
             code: |
                 mv /tmp/terraform/terraform "${WERCKER_ROOT}/terraform"
-                mv /tmp/terraform/linux_amd64/terraform-provider-oci_v2.2.4 "${WERCKER_ROOT}/terraform"
+                mv /tmp/terraform/linux_amd64/terraform-provider-oci_v2.2.4 "${WERCKER_ROOT}/terraform-provider-oci_v2.2.4"
                 rm -rf "${WERCKER_ROOT}/.git"
                 rm -f "${WERCKER_ROOT}/.gitignore"
                 
         - script:
             name: version
             code: |
-                cd "${WERCKER_ROOT}/terraform"
+                cd "${WERCKER_ROOT}"
                 ls -a
                 "${WERCKER_ROOT}/terraform" --version
 
