@@ -24,7 +24,7 @@ build:
                 }
                 function oci-provider-install() {
                     mkdir -p $GOPATH/src/github.com/terraform-providers; cd $GOPATH/src/github.com/terraform-providers
-                    git clone git@github.com:terraform-providers/terraform-provider-oci
+                    git clone https://github.com/terraform-providers/terraform-provider-oci.git 
                     cd $GOPATH/src/github.com/terraform-providers/terraform-provider-oci
                     make build
                 }
