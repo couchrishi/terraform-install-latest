@@ -6,7 +6,7 @@ build:
             files: run.sh
 
         - install-packages:
-            packages: unzip curl jq git make wget tar
+            packages: unzip curl jq git make wget tar goimports
 
         - script:
             name: install terraform
