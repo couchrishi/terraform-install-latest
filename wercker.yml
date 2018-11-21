@@ -19,6 +19,8 @@ build:
                     export GOROOT=/usr/local/go
                     export GOPATH=$HOME
                     export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+                    go version
+                    go env
                 }
                 function terraform-install() {
                     terraform_dir=/tmp/terraform
