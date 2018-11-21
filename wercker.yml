@@ -6,7 +6,7 @@ build:
             files: run.sh
 
         - install-packages:
-            packages: unzip curl jq git make
+            packages: unzip curl jq git make jessie
 
         - script:
             name: install terraform
