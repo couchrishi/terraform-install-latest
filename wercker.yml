@@ -13,15 +13,23 @@ build:
             code: |
                 #!/bin/bash
                 function terraform-install() {
-                terraform_dir=/tmp/terraform
-                mkdir -p $terraform_dir
-                cd $terraform_dir
-                echo "Installing latest version of terraform"
-                LATEST_URL=$(curl -sL https://releases.hashicorp.com/terraform/index.json | jq -r '.versions[].builds[].url' | sort -t. -k 1,1n -k 2,2n -k 3,3n -k 4,4n | egrep -v 'rc|beta' | egrep 'linux.*amd64' |tail -1)
-                curl ${LATEST_URL} > terraform.zip
-                unzip terraform.zip
-                rm terraform.zip
+                    terraform_dir=/tmp/terraform
+                    mkdir -p $terraform_dir
+                    cd $terraform_dir
+                    echo "Installing latest version of terraform"
+                    LATEST_URL=$(curl -sL https://releases.hashicorp.com/terraform/index.json | jq -r '.versions[].builds[].url' | sort -t. -k 1,1n -k 2,2n -k 3,3n -k 4,4n | egrep -v 'rc|beta' | egrep 'linux.*amd64' |tail -1)
+                    curl ${LATEST_URL} > terraform.zip
+                    unzip terraform.zip
+                    rm terraform.zip
                 }
+                function oci-provider-install() {
+                    mkdir -p $GOPATH/src/github.com/terraform-providers; cd $GOPATH/src/github.com/terraform-providers
+                    git clone git@github.com:terraform-providers/terraform-provider-oci
+                    cd $GOPATH/src/github.com/terraform-providers/terraform-provider-oci
+                    make build
+                    mv $GOPATH/src/github.com/terraform-providers/terraform-provider-oci/* ${WERCKER_STEP_ROOT}/terraform
+                }
+                oci-provider-install
                 terraform-install
 
         - script:
