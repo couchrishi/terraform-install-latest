@@ -38,7 +38,6 @@ build:
                     git clone https://github.com/terraform-providers/terraform-provider-oci.git 
                     cd $GOPATH/src/github.com/terraform-providers/terraform-provider-oci
                     ls -a
-                    make fmt
                     make build
                 }
                 go-install
