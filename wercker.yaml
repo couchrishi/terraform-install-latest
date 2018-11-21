@@ -1,0 +1,9 @@
+box: wercker/python
+build:
+  steps:
+      - validate-wercker-step
+
+publish:
+    steps:
+        - internal/publish-step:
+            owner: saibalaji4

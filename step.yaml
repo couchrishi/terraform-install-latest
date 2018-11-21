@@ -1,0 +1,6 @@
+name: terraform-install-latest
+version: latest
+summary: terraform-install-latest
+category: imported
+tags:
+- terraform

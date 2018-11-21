@@ -1,0 +1,5 @@
+name: terraform-install-latest
+version: latest
+description: terraform-install-latest
+keywords:
+  - terraform
