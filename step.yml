@@ -3,4 +3,4 @@ version: latest
 summary: terraform-install-latest
 category: imported
 tags:
-- terraform
+  - terraform
