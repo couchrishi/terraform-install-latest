@@ -1,7 +1,8 @@
 box: debian:stable-slim
 build:
   steps:
-      - validate-wercker-step
+      - shellcheck:
+            files: run.sh
 
 publish:
     steps:
