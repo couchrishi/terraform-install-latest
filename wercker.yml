@@ -54,8 +54,10 @@ build:
                 rm -f "${WERCKER_ROOT}/.gitignore"
                 cd ${WERCKER_STEP_ROOT}
                 ls -a
-                ls -a ~/.terraform.d/plugins/linux_amd64
-
+        
+                ls -a ~/.terraform.d/
+                ls -a ~/.terraform.d/plugins
+                
         - script:
             name: version
             code: |
