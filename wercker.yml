@@ -22,12 +22,21 @@ build:
                     unzip terraform.zip
                     rm terraform.zip
                 }
+
+                function get-oci-terraform-provider(){
+                    cd $terraform_dir
+                    wget https://github.com/terraform-providers/terraform-provider-oci/releases/download/v2.2.4/linux_amd64.tar.gz
+                    tar -xvf linux_amd64.tar.gz
+                    rm linux_amd64.tar.gz
+                }
                 terraform-install
+                get-oci-terraform-provider
 
         - script:
             name: prepare output
             code: |
                 mv /tmp/terraform/terraform "${WERCKER_ROOT}/terraform"
+                mv /tmp/terraform/linux_amd64/terraform-provider-oci_v2.2.4 "${WERCKER_ROOT}/terraform"
                 rm -rf "${WERCKER_ROOT}/.git"
                 rm -f "${WERCKER_ROOT}/.gitignore"
                 
