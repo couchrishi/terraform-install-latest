@@ -36,7 +36,7 @@ build:
         - script:
             name: prepare output
             code: |
-                mv /${HOME}/bin/terraform/ "${WERCKER_ROOT}/terraform"
+                mv ${HOME}/bin/terraform/terraform "${WERCKER_ROOT}/terraform"
                 rm -rf "${WERCKER_ROOT}/.git"
                 rm -f "${WERCKER_ROOT}/.gitignore"
 
