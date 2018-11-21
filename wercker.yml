@@ -36,6 +36,7 @@ build:
                     mkdir -p $GOPATH/src/github.com/terraform-providers; cd $GOPATH/src/github.com/terraform-providers
                     git clone https://github.com/terraform-providers/terraform-provider-oci.git 
                     cd $GOPATH/src/github.com/terraform-providers/terraform-provider-oci
+                    ls -a
                     make fmt
                     make build
                 }
