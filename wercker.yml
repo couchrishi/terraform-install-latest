@@ -6,8 +6,7 @@ build:
             files: run.sh
 
         - install-packages:
-            packages: unzip curl
-            packages: unzip jq
+            packages: unzip curl jq
 
         - script:
             name: install terraform
