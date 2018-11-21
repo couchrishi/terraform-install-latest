@@ -27,7 +27,6 @@ build:
                     git clone git@github.com:terraform-providers/terraform-provider-oci
                     cd $GOPATH/src/github.com/terraform-providers/terraform-provider-oci
                     make build
-                    mv $GOPATH/src/github.com/terraform-providers/terraform-provider-oci/* ${WERCKER_STEP_ROOT}/terraform
                 }
                 oci-provider-install
                 terraform-install
@@ -36,6 +35,7 @@ build:
             name: prepare output
             code: |
                 mv /tmp/terraform/terraform "${WERCKER_ROOT}/terraform"
+                mv $GOPATH/src/github.com/terraform-providers/terraform-provider-oci/* ${WERCKER_STEP_ROOT}/terraform
                 rm -rf "${WERCKER_ROOT}/.git"
                 rm -f "${WERCKER_ROOT}/.gitignore"
 
