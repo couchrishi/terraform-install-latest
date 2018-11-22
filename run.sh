@@ -13,7 +13,7 @@ $terraform_cli init
 
 cat terraform.tfvars
 
-echo "terraform ${WERCKER_TERRAFORM_INSTALL_LATEST_COMMAND}"
-if ! eval "$terraform_cli ${WERCKER_TERRAFORM_INSTALL_LATEST_COMMAND}"; then
+echo "terraform ${WERCKER_TERRAFORM_INSTALL_LATEST_COMMAND} --${WERCKER_TERRAFORM_INSTALL_LATEST_VAR_FILE}"
+if ! eval "$terraform_cli ${WERCKER_TERRAFORM_INSTALL_LATEST_COMMAND --${WERCKER_TERRAFORM_INSTALL_LATEST_VAR_FILE}"; then
   fail "Invalid command option"
 fi
