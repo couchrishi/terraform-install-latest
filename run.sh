@@ -11,9 +11,7 @@ $terraform_cli --version
 
 ls -a
 $terraform_cli init
-
+echo "TF_VAR_OCI_COMPARTMENT_OCID"
 cat ${WERCKER_TERRAFORM_INSTALL_LATEST_VAR_FILE}
 echo "$terraform_cli ${WERCKER_TERRAFORM_INSTALL_LATEST_COMMAND}"
-ls -a
-cat terraform.tfvars
 $terraform_cli ${WERCKER_TERRAFORM_INSTALL_LATEST_COMMAND}
